@@ -16,7 +16,7 @@ build_env()
 . "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"/telegram
 TELEGRAM_TOKEN=$(cat /tmp/tg_token)
 export TELEGRAM_TOKEN
-tg_sendinfo "<code>[MaestroCI]: GCC-10 Compiler Job rolled!</code>"
+tg_sendinfo "<code>[MaestroCI]: GCC-9.1.1 Compiler Job rolled!</code>"
 cd ~
 git clone https://github.com/akhilnarang/scripts > /dev/null 2>&1
 cd scripts
@@ -48,7 +48,7 @@ export LOC=$(cat /tmp/loc)
 run()
 {
 echo "Starting build!"
-git clone https://github.com/baalajimaestro/ct-ng-configs -b GCC-10 > /dev/null 2>&1
+git clone https://github.com/baalajimaestro/ct-ng-configs -b GCC-9 > /dev/null 2>&1
 cd ct-ng-configs
 ct-ng build
 echo "Build finished!"
@@ -61,11 +61,11 @@ sudo chmod -R 777 $HOME/x-tools
 cd $HOME/x-tools/aarch64.*
 git init
 git add .
-git checkout -b $(date +%d%m%y)
+git checkout -b "$(date +%d%m%y)-9.1"
 git commit -m "[MaestroCI]: GCC-10 $(date +%d%m%y)" --signoff
 git remote add origin https://baalajimaestro:$(cat /tmp/GH_TOKEN)@github.com/baalajimaestro/aarch64-maestro-linux-android.git
-git push --force origin $(date +%d%m%y)
-tg_sendinfo "<code>Checked out and pushed GCC-10</code>"
+git push --force origin "$(date +%d%m%y)-9.1"
+tg_sendinfo "<code>Checked out and pushed GCC-9.1</code>"
 echo "Job Successful!"
 }
 
