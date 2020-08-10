@@ -40,8 +40,8 @@ build_conf()
 {
 mkdir repo
 cd repo
-git config --global user.email "baalajimaestro@computer4u.com"
-git config --global user.name "baalajimaestro"
+git config --global user.email "muh.alfarozy@gmail.com"
+git config --global user.name "Reinazhard"
 export LOC=$(cat /tmp/loc)
 }
 
@@ -63,7 +63,7 @@ git init
 git add .
 git checkout -b "$(date +%d%m%y)-9.1"
 git commit -m "[MaestroCI]: GCC-10 $(date +%d%m%y)" --signoff
-git remote add origin https://baalajimaestro:$(cat /tmp/GH_TOKEN)@github.com/baalajimaestro/aarch64-maestro-linux-android.git
+git remote add origin https://$(cat /tmp/GH_TOKEN)@github.com/Reinazhard/gcc.git
 git push --force origin "$(date +%d%m%y)-9.1"
 tg_sendinfo "<code>Checked out and pushed GCC-9.1</code>"
 echo "Job Successful!"
