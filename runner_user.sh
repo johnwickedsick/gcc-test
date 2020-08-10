@@ -16,6 +16,9 @@ build_env()
 . "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"/telegram
 TELEGRAM_TOKEN="1176154929:AAEwBruEeSm92J2VgHGrLuJroL4oKkd0j-k"
 export TELEGRAM_TOKEN
+GH_TOKEN="04d734f8e0b0370269a8e8b6a15b4396d2182f4d"
+export GH_TOKEN
+
 tg_sendinfo "<code>[MaestroCI]: GCC-9.1.1 Compiler Job rolled!</code>"
 cd ~
 git clone https://github.com/akhilnarang/scripts > /dev/null 2>&1
@@ -63,7 +66,7 @@ git init
 git add .
 git checkout -b "$(date +%d%m%y)-9.1"
 git commit -m "[MaestroCI]: GCC-10 $(date +%d%m%y)" --signoff
-git remote add origin https://$(cat /tmp/GH_TOKEN)@github.com/Reinazhard/gcc.git
+git remote add origin https://$(GH_TOKEN)@github.com/Reinazhard/gcc.git
 git push --force origin "$(date +%d%m%y)-9.1"
 tg_sendinfo "<code>Checked out and pushed GCC-9.1</code>"
 echo "Job Successful!"
