@@ -14,7 +14,7 @@
 build_env()
 {
 . "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"/telegram
-TELEGRAM_TOKEN=$(cat /tmp/tg_token)
+TELEGRAM_TOKEN="1176154929:AAEwBruEeSm92J2VgHGrLuJroL4oKkd0j-k"
 export TELEGRAM_TOKEN
 tg_sendinfo "<code>[MaestroCI]: GCC-9.1.1 Compiler Job rolled!</code>"
 cd ~
